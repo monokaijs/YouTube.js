@@ -1,5 +1,5 @@
 {
-  "name": "youtubei.js",
+  "name": "innertube-rn",
   "version": "9.0.2",
   "description": "A wrapper around YouTube's private API. Supports YouTube, YouTube Music, YouTube Kids and YouTube Studio (WIP).",
   "type": "module",
