@@ -35,7 +35,7 @@
       },
       "types": "./dist/src/platform/lib.d.ts",
       "browser": "./dist/src/platform/web.js",
-      "react-native": "./dist/src/platform/react-native.js",
+      "react-native": "./bundle/react-native.js",
       "default": "./dist/src/platform/web.js"
     },
     "./package.json": "./package.json",
@@ -49,7 +49,7 @@
     },
     "./react-native": {
       "types": "./dist/src/platform/lib.d.ts",
-      "default": "./dist/src/platform/react-native.js"
+      "default": "./bundle/react-native.js"
     },
     "./web.bundle": {
       "types": "./dist/src/platform/lib.d.ts",
@@ -83,7 +83,7 @@
     "build:proto": "rimraf ./protos/generated && node ./dev-scripts/generate-proto.mjs",
     "build:parser-map": "node ./dev-scripts/gen-parser-map.mjs",
     "bundle:browser": "esbuild ./dist/src/platform/web.js --banner:js=\"/* eslint-disable */\" --bundle --sourcemap --target=chrome70 --keep-names --format=esm --define:global=globalThis --conditions=module --outfile=./bundle/browser.js --platform=browser",
-    "bundle:react-native": "esbuild ./dist/src/platform/react-native.js --bundle --sourcemap --target=es2020 --keep-names --format=esm --platform=neutral --define:global=globalThis --conditions=module --external:jintr --external:@bufbuild/protobuf --outfile=./bundle/react-native.js",
+    "bundle:react-native": "esbuild ./dist/src/platform/react-native.js --bundle --sourcemap --target=es2020 --keep-names --format=esm --platform=neutral --define:global=globalThis --conditions=module --minify --outfile=./bundle/react-native.js",
     "bundle:cf-worker": "esbuild ./dist/src/platform/cf-worker.js --banner:js=\"/* eslint-disable */\" --bundle --sourcemap --target=es2020 --keep-names --format=esm --define:global=globalThis --conditions=module --outfile=./bundle/cf-worker.js --platform=node",
     "build:docs": "typedoc",
     "prepare": "npm run build",
